@@ -1,0 +1,130 @@
+
+
+{
+  box-sizing: border-box;
+}
+
+#dropDown{
+/*	border: solid 5px black;*/
+    font-size: 16px;
+}
+
+#poststatus{
+  border: solid 5px black;
+    font-size: 16px;
+}
+
+#loginViewContainer {
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  height: auto;
+  border: solid 1px black;
+  background-color: white;
+  padding: 0 20px 20px 20px;
+  text-align: center;
+}
+
+#userViewContainer {
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  height: auto;
+  border: solid 1px black;
+  padding: 0 10px;
+
+}
+
+#unassignedposts {
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  min-height: 300px;
+  height: auto;
+  margin: 80px auto 0px auto;
+  padding: 10px 10px;
+  border: solid 1px black;
+  padding: 0 10px;
+  overflow:auto;
+  background-color: white;
+  margin: 0 auto;
+}
+
+/*
+#unassignedposts poststatusDropDown {
+  visibility: hidden;
+}
+*/
+
+#myposts {
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  min-height: 300px;
+  height: auto;
+  margin: 80px auto 0px auto;
+  padding: 10px 10px;
+  overflow:auto;
+  border: solid 1px black;
+  padding: 0 10px;
+  background-color: white;
+  margin: 0 auto;
+}
+
+/*#createpostViewContainer {
+  margin-left: auto;
+  margin-right: auto;
+  width: 225px;
+  min-height: 200px;
+  height: auto;
+  margin: 10px 0px;
+  padding: 10px 10px;
+  overflow:auto;
+  background-color: #white;
+  border: solid 2px black;
+}*/
+
+#title {
+  font-family: Helvetica;
+  font-size: 13px;
+  width: 175px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+
+}
+
+#Tweet {
+  font-family: Helvetica;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  width: 200px;
+  height: 100px;
+  padding: 5px;
+  border-radius: 3px;
+  border-top: #777 1px solid;
+  border-right: #777 1px solid;
+  border-bottom: #999 1px solid;
+  border-left: #999 1px solid;
+}
+
+/*#poststatus{
+  border: solid 5px black;
+    font-size: 16px;
+}*/
+
+
+
+/*
+#logout {
+	float: right;
+}
+*/
+
+#saveBtn {
+  margin-bottom: 7%;
+}
+
+button {
+  margin: 20px 20px;
+}
