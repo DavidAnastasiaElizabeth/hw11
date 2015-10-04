@@ -1,13 +1,13 @@
 var database = {};
 
-var database.users = [
+database.users = [
 	{username: ''},
 	{username:'Anastasia'},
 	{username:'Elizabeth'},
 	{username:'David'}
 ];
 
-var database.posts = [
+database.posts = [
   { title:'Twitter is okay...TEAM DAE TWITTER is AmAzInG',
     author:    'David'
   },
