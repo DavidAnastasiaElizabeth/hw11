@@ -67,7 +67,7 @@ Your server will need the routes both to render HTML and to send JSON data.
 
 ##### A word on sending POST requests:
 
-At this point, you know two different ways to send POST requests from the client to the server: 
+At this point, you know two different ways to send POST requests from the client to the server:
 
 * Using a form, which makes a normal http POST request and replaces the client page with whatever the server sends back.  To do this, but a `submit` button inside the form, set the `method` attribute to 'POST', and set the `action` attribute to the route on the server which should handle the request.
 
