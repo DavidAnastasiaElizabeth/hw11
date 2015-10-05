@@ -1,7 +1,6 @@
 var database = {};
 
 database.users = [
-	{username: ''},
 	{username:'Anastasia', password:'doglady', bio:'dog lover, pizza eater.'},
 	{username:'Elizabeth', password:'catlady', bio:'cat lover, cookie eater.'},
 	{username:'David', password:'one', bio:'dragon lover, gangsta.'}
