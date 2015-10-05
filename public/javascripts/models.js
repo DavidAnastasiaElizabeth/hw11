@@ -17,10 +17,16 @@ var PostModel = Backbone.Model.extend({
 
 var RecentPosts = Backbone.Collection.extend({
   model: PostModel,
-  url: '/posts/recent'
+  url: '/posts/recent',
+  initialize: function (){
+    this.fetch();
+  }
 });
 
 var UsersPosts = Backbone.Collection.extend({
   model: PostModel,
-  url:'posts/:username'
+  url:'posts/:username',
+  initialize: function (){
+    this.fetch();
+  }
 });
