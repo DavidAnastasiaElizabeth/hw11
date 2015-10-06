@@ -17,13 +17,22 @@ logout: function() {
  },
 });
 
-CreatePostView = Backbone.View.extend({
+var PostView = Backbone.View.extend({
+  render: function() {
+    var title = '<h4>' + this.model.get('title') + '</h4>';
+    this.$el.html(title);
+    return this;
+  }
+})
+
+var CreatePostView = Backbone.View.extend({
   render: function(user) {
     console.log('CreatePostView am rendering');
     var createpostViewContainer = '<div id="createpostViewContainer">';
     var postInput = '<textarea id="Tweet"></textarea>';
     var savePost = '<button id="savepost">Post</button>';
-    return (createpostViewContainer + '<br><div>' + postInput + '</div><div>' + savePost + '</div>');
+    this.$el.html(createpostViewContainer + '<br><div>' + postInput + '</div><div>' + savePost + '</div>');
+    return this;
   },
 
   events: {
@@ -37,25 +46,52 @@ CreatePostView = Backbone.View.extend({
 
 var RecentPostsView = Backbone.View.extend({
   className: 'RecentPostsView',
-    initalize: function() {
-      this.listenTo(database.posts, 'change', this.render);
-      this.listenTo(database.posts, 'update', this.render);
-    },
+  initialize: function() {
+    this.listenTo(this.collection, 'update', this.render);
+  },
 
-    render: function() {
-      var self = this;
-      database.posts.fetch().done(function(){
-      console.log("RecentPostsView is rendering!!!");
-      var label = '<h2>All Posts</h2>';
-      console.log("database.posts", database.posts);
-      self.$el.html(label);
-      // "model": app.posts.at(i),
-      // "index": i,
-      // parent: self
-    });
+  render: function() {
+    console.log('RecentPostsView is rendering!!!');
+    var label = '<h2>Recent Posts</h2>';
+    this.$el.html(label);
+    this.collection.each(function(post) {
+      console.log('test');
+      var postView = new PostView({ model: post });
+      this.$el.append(postView.render().$el);
+    }, this);
+    return this;
+    // console.log("database.posts", database.posts);
+    // "model": app.posts.at(i),
+    // "index": i,
+    // parent: self
 
-   self.$el.append(postView1.$el);
-   }
+    // self.$el.append(postView1.$el);
+ }
+});
+
+var UsersPostsView = Backbone.View.extend({
+  className: 'RecentPostsView',
+  initialize: function() {
+    this.listenTo(this.collection, 'update', this.render);
+  },
+
+  render: function() {
+    console.log('RecentPostsView is rendering!!!');
+    var label = '<h2>Users Posts</h2>';
+    this.$el.html(label);
+    this.collection.each(function(post) {
+      console.log('test');
+      var postView = new PostView({ model: post });
+      this.$el.append(postView.render().$el);
+    }, this);
+    return this;
+    // console.log("database.posts", database.posts);
+    // "model": app.posts.at(i),
+    // "index": i,
+    // parent: self
+
+    // self.$el.append(postView1.$el);
+ }
 });
 
 
