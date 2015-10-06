@@ -35,9 +35,28 @@ CreatePostView = Backbone.View.extend({
     },
  });
 
-// var RecentPostsView = Backbone.View.extend({
+var RecentPostsView = Backbone.View.extend({
+  className: 'RecentPostsView',
+    initalize: function() {
+      this.listenTo(database.posts, 'change', this.render);
+      this.listenTo(database.posts, 'update', this.render);
+    },
 
-// });
+    render: function() {
+      var self = this;
+      database.posts.fetch().done(function(){
+      console.log("RecentPostsView is rendering!!!");
+      var label = '<h2>All Posts</h2>';
+      console.log("database.posts", database.posts);
+      self.$el.html(label);
+      // "model": app.posts.at(i),
+      // "index": i,
+      // parent: self
+    });
+
+   self.$el.append(postView1.$el);
+   }
+});
 
 
 // MyPostsView = Backbone.View.extend({
