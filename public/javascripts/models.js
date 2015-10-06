@@ -25,7 +25,7 @@ var RecentPosts = Backbone.Collection.extend({
 
 var UsersPosts = Backbone.Collection.extend({
   model: PostModel,
-  url:'posts/:username',
+  url:'posts/' + user,
   initialize: function (){
     this.fetch();
   }

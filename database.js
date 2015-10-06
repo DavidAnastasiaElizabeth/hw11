@@ -8,19 +8,29 @@ database.users = [
 
 database.posts = [
   { title:'Twitter is okay...TEAM DAE TWITTER is AmAzInG',
-    author:'David'
+    author:'David',
+    timestamp: Date.now(),
+    id: 0
   },
   { title:'Twitter should honstly consider a rebuild based on this model',
-    author:'Anastasia'
+    author:'Anastasia',
+    timestamp: Date.now(),
+    id: 1
   },
   { title:'Team DAE Twitter rules',
-    author:'Elizabeth'
+    author:'Elizabeth',
+    timestamp: Date.now(),
+    id: 2
   },
   { title:'Team Dae is going to participate in a clone-a-thon',
-    author:'David'
+    author:'David',
+    timestamp: Date.now(),
+    id: 3
   },
   { title:'Twitter...more like DAEitter',
-    author:'Anastasia'
+    author:'Anastasia',
+    timestamp: Date.now(),
+    id: 4
   }
 ];
 

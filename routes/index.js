@@ -47,4 +47,22 @@ router.post('/users', function(req, res, next) {
 
 });
 
+//post routes
+router.get('/posts/recent', function(req, res, next) {
+  res.send(database.posts.splice(-3, database.posts.length -1));
+  //console.log(database.posts.splice(-3, database.posts.length -1));
+});
+
+router.get('/posts/:username', function(req, res, next) {
+  var usersPosts = [];
+  for (var i = 0; i < database.posts.length; i++) {
+    if (database.posts[i].author === req.params.username) {
+      usersPosts.push(database.posts[i]);
+    }
+  }
+  res.send(usersPosts);
+  console.log(usersPosts);
+});
+
+
 module.exports = router;
