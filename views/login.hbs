@@ -1,14 +1,24 @@
-<h1>{{title}}</h1>
-<p>{{message}}</p>
-<form action = "/" method = "POST">
-  <div>
-    <label>Username</label>
-    <input type = "text" name = "username">
+<link rel='stylesheet' href='/stylesheets/login.css' />
+<body background="/images/HermitCrab.png"/>
+  <h1>{{title}}</h1>
+  <p>{{message}}</p>
+  <div id ="login">
+    <div id="loginbox">
+      <form action = "/" method = "POST">
+        <div id="username">
+          <label>Username</label>
+          <input type = "text" name = "username">
+        </div>
+        <div id="password">
+          <label>Password</label>
+          <input type = "password" name = "password">
+        </div>
+        <input class="button" type = "submit" value="Login">
+      </form>
+      <div class="bigbtn" method="link" action='/register'>
+        <a href='/register' type="submit">Sign Up</a>
+      </div>
+    </div>
+
   </div>
-  <div>
-    <label>Password</label>
-    <input type = "password" name = "password">
-  </div>
-  <input type = "submit">
-</form>
-<a href="/register">Sign Up</a>
+</body>
