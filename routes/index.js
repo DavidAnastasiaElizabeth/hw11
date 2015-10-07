@@ -9,10 +9,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  for(var i = 0; i<database.users.length; i++){
-    if (database.users[i].username === req.body.username && database.users[i].password === req.body.password){
-        res.render('main', { title: 'Hermit App', user: database.users[i]});
-      }
+  for (var i = 0; i < database.users.length; i++) {
+    if (database.users[i].username === req.body.username && database.users[i].password === req.body.password) {
+      res.render('main', { title: 'Hermit App', user: database.users[i] });
+    }
   }
   console.log('Username or password incorrect');
   res.render('login', { title: 'Login to Hermit' });
