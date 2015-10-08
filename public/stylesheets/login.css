@@ -1,0 +1,86 @@
+html {
+  background: "HermitCrab.png" no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  z-index: 0;
+
+
+}
+
+h1 {
+  font-family: "Slackey";
+  color: #ee2818;
+  font-size: 5em;
+  text-align: left;
+  margin-top: -3%;
+  z-index: 4;
+
+}
+
+#login {
+  width: 100%;
+  float: left;
+  z-index: 1;
+}
+
+#loginbox {
+  width: 300px;
+  height: 200px;
+  border-radius: 3%;
+  background-color: #b6eefe;
+  margin-left: 8%;
+  padding-top: 5%;
+  padding-left: 5%;
+  z-index: 3;
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+
+}
+#username {
+  font-size: 1.25em;
+}
+#password {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  z-index: 4;
+  font-size: 1.25em;
+}
+
+.button {
+  margin-right: 10%;
+  float: right;
+  z-index: 4;
+  padding-bottom: 5px;
+  display: inline-block;
+
+}
+
+.bigbtn {
+  background-color: #ee2818;
+  color: white;
+  border-radius: 5px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  width: 150px;
+  height: 30px;
+  text-align: center;
+  margin: 15%;
+
+}
+.bigbtn a {
+  text-decoration: none;
+  color: white;
+  text-align: center;
+
+}
+
+
+
+
+
+
