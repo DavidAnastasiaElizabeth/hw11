@@ -15,6 +15,14 @@ var PostModel = Backbone.Model.extend({
   }
 });
 
+var Posts = Backbone.Model.extend({
+  nodel: PostModel,
+  url:'/posts',
+  initialize: function (){
+    this.fetch();
+  }
+});
+
 var RecentPosts = Backbone.Collection.extend({
   model: PostModel,
   url: '/posts/recent',
