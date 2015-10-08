@@ -41,6 +41,18 @@ var CreatePostView = Backbone.View.extend({
 
   save: function() {
     console.log('click heard on savepost button');
+    var post = new PostModel();
+    var newTime = $("newTime").val();
+    var newPost = $("postContent").val();
+    database.posts.add({
+      title: newPost,
+      author: database.users,
+      timestamp: newTime
+    });
+    var newUserPostsView = new UserPostsView();
+    var newRecentPostsView = new RecentPostsView();
+    newUserPostsView.render();
+    newRecentPostsView.render();
     },
  });
 
@@ -70,7 +82,7 @@ var RecentPostsView = Backbone.View.extend({
 });
 
 var UsersPostsView = Backbone.View.extend({
-  className: 'RecentPostsView',
+  className: 'MyPostsView',
   initialize: function() {
     this.listenTo(this.collection, 'update', this.render);
   },
