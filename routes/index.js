@@ -5,7 +5,7 @@ var router = express.Router();
 // Login Routes
 // ---------------
 router.get('/', function(req, res, next) {
-  res.render('login', { title: 'Login to Hermit' });
+  res.render('login', { title: 'Log In to Hermit' });
 });
 
 router.post('/', function(req, res, next) {
@@ -14,7 +14,7 @@ router.post('/', function(req, res, next) {
       res.render('main', { title: 'Hermit App', user: database.users[i] });
     } else if (i === database.users.length - 1) {
       console.log('Username or password incorrect');
-      res.render('login', { title: 'Login to Hermit' });
+      res.render('login', { title: 'Log In to Hermit' });
     }
   }
 });
