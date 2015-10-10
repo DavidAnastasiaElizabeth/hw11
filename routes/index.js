@@ -62,7 +62,7 @@ router.post('/posts', function(req, res, next) {
   db.post('posts', {
     "title": req.body.title,
     "author": req.body.author,
-    "content": req.body.author,
+    "content": req.body.content,
     "timestamp": req.body.timestamp
   }).then(function(result) {
     console.log('Posted');
