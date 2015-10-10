@@ -8,6 +8,7 @@ $('#user-view').append(createPostView.render().$el);
 
 var recentPosts = new RecentPosts();
 var usersPosts = new UsersPosts();
+var posts = new Posts();
 
 var recentPostsView = new RecentPostsView({ collection: recentPosts });
 var usersPostsView = new UsersPostsView({ collection: usersPosts });
