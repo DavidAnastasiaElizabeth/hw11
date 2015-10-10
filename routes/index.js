@@ -1,5 +1,8 @@
 var express = require('express');
 var database = require('../database');
+var config = require('./config');
+var orch = require('orchestrate');
+var db = orch(config.dbkey);
 var router = express.Router();
 
 // Login Routes
@@ -51,6 +54,16 @@ router.post('/users', function(req, res, next) {
 //post routes
 
 router.get('/posts', function(req, res, next) {
+  db.post('posts', {
+    "title": req.body.title,
+    "author": req.body.author,
+    "timestamp": Date.now()
+  }).then(function(result) {
+    console.log('Posted');
+  });
+});
+
+router.post('/posts', function(req, res, next) {
   res.send(database.posts);
   //console.log(database.posts.splice(-3, database.posts.length -1));
 });
