@@ -8,9 +8,9 @@ var UserModel = Backbone.Model.extend({
 
 var PostModel = Backbone.Model.extend({
   defaults:{
-    timestamp: Date.now(),
+    timestamp: '',
     title:'',
-    body:'',
+    content:'',
     author:''
   }
 });
