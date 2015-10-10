@@ -54,7 +54,13 @@ router.post('/users', function(req, res, next) {
 //post routes
 
 router.get('/posts', function(req, res, next) {
-  res.send(database.posts);
+  db.list('posts').then(function(result) {
+    var posts = [];
+    for (var i = 0; i < result.body.results.length; i++) {
+      posts.push(result.body.results[i].value)
+    }
+    res.send(posts);
+  })
   //console.log(database.posts.splice(-3, database.posts.length -1));
 });
 
@@ -70,19 +76,26 @@ router.post('/posts', function(req, res, next) {
 });
 
 router.get('/posts/recent', function(req, res, next) {
-  res.send(database.posts.slice(-3));
+  db.list('posts').then(function(result) {
+    var posts = [];
+    for (var i = 0; i < result.body.results.length; i++) {
+      posts.push(result.body.results[i].value)
+    }
+    res.send(posts.slice(-3));
+  })
   //console.log(database.posts.splice(-3, database.posts.length -1));
 });
 
 router.get('/posts/:username', function(req, res, next) {
-  var usersPosts = [];
-  for (var i = 0; i < database.posts.length; i++) {
-    if (database.posts[i].author === req.params.username) {
-      usersPosts.push(database.posts[i]);
+  db.list('posts').then(function(result) {
+    var posts = [];
+    for (var i = 0; i < result.body.results.length; i++) {
+      if (result.body.results[i].value.author === req.params.username) {
+        posts.push(result.body.results[i].value)
+      }
     }
-  }
-  res.send(usersPosts);
-  console.log(usersPosts);
+    res.send(posts.slice(-3));
+  });
 });
 
 
