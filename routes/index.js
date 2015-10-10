@@ -54,6 +54,11 @@ router.post('/users', function(req, res, next) {
 //post routes
 
 router.get('/posts', function(req, res, next) {
+  res.send(database.posts);
+  //console.log(database.posts.splice(-3, database.posts.length -1));
+});
+
+router.post('/posts', function(req, res, next) {
   db.post('posts', {
     "title": req.body.title,
     "author": req.body.author,
@@ -61,11 +66,6 @@ router.get('/posts', function(req, res, next) {
   }).then(function(result) {
     console.log('Posted');
   });
-});
-
-router.post('/posts', function(req, res, next) {
-  res.send(database.posts);
-  //console.log(database.posts.splice(-3, database.posts.length -1));
 });
 
 router.get('/posts/recent', function(req, res, next) {
