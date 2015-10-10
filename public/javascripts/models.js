@@ -7,6 +7,7 @@ var UserModel = Backbone.Model.extend({
 });
 
 var PostModel = Backbone.Model.extend({
+  idAttribute: 'key',
   defaults:{
     timestamp: '',
     title:'',
