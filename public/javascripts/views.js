@@ -30,7 +30,6 @@ var HermitViews = (function() {
 
   var CreatePostView = Backbone.View.extend({
     render: function(user) {
-      console.log('CreatePostView am rendering');
       var createpostViewContainer = '<div id="createpostViewContainer">';
       var postTitle = '<input type="text" id="post-title">';
       var postBody = '<textarea id="post-body"></textarea>';
@@ -51,7 +50,9 @@ var HermitViews = (function() {
         timestamp: Date.now()
       });
       postAdded.save();
-      },
+      $('#post-title').val('');
+      $('#post-body').val('');
+    },
    });
 
   var RecentPostsView = Backbone.View.extend({
@@ -61,11 +62,9 @@ var HermitViews = (function() {
     },
 
     render: function() {
-      console.log('RecentPostsView is rendering!!!');
       var label = '<h2>Recent Posts</h2>';
       this.$el.html(label);
       this.collection.each(function(post) {
-        console.log('test');
         var postView = new PostView({ model: post });
         this.$el.append(postView.render().$el);
       }, this);
@@ -80,11 +79,9 @@ var HermitViews = (function() {
     },
 
     render: function() {
-      console.log('RecentPostsView is rendering!!!');
       var label = '<h2>Users Posts</h2>';
       this.$el.html(label);
       this.collection.each(function(post) {
-        console.log('test');
         var postView = new PostView({ model: post });
         this.$el.append(postView.render().$el);
       }, this);
