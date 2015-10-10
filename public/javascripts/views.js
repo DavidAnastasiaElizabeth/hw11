@@ -29,31 +29,29 @@ var CreatePostView = Backbone.View.extend({
   render: function(user) {
     console.log('CreatePostView am rendering');
     var createpostViewContainer = '<div id="createpostViewContainer">';
-    var postInput = '<textarea id="Tweet"></textarea>';
+    var postTitle = '<input type="text" id="post-title">';
+    var postBody = '<textarea id="post-body"></textarea>';
     var savePost = '<button id="savepost">Post</button>';
-    this.$el.html(createpostViewContainer + '<br><div>' + postInput + '</div><div>' + savePost + '</div>');
+    this.$el.html(createpostViewContainer + '<br><div>' + postTitle + '</div><div>' + postBody + '</div><div>' + savePost + '</div>');
     return this;
   },
 
   events: {
-    'click #savepost': 'save',
+    'click #savepost': 'savePost',
   },
 
-  save: function() {
-    console.log('click heard on savepost button');
-    var post = new PostModel();
-    var newTime = $("newTime").val();
-    var newPost = $('postContent').val();
-    var postAdded = posts.add({
-      title: newPost,
-      author: database.users,
-      timestamp: newTime
+  savePost: function() {
+    var postAdded = this.collection.add({
+      title: $('#post-title').val(),
+      content: $('#post-body').val(),
+      author: user,
+      timestamp: Date.now()
     });
     postAdded.save();
-    var newUserPostsView = new UserPostsView();
-    var newRecentPostsView = new RecentPostsView();
-    newUserPostsView.render();
-    newRecentPostsView.render();
+    // var newUserPostsView = new UserPostsView();
+    // var newRecentPostsView = new RecentPostsView();
+    // newUserPostsView.render();
+    // newRecentPostsView.render();
     },
  });
 

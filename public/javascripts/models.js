@@ -8,15 +8,15 @@ var UserModel = Backbone.Model.extend({
 
 var PostModel = Backbone.Model.extend({
   defaults:{
-    timestamp: Date.now(),
+    timestamp: '',
     title:'',
-    body:'',
+    content:'',
     author:''
   }
 });
 
-var Posts = Backbone.Model.extend({
-  nodel: PostModel,
+var Posts = Backbone.Collection.extend({
+  model: PostModel,
   url:'/posts',
   initialize: function (){
     this.fetch();
