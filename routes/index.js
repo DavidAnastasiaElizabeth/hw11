@@ -8,16 +8,16 @@ var router = express.Router();
 // Login Routes
 // ---------------
 router.get('/', function(req, res, next) {
-  res.render('login', { title: 'Log In to Hermit' });
+  res.render('login', { title: 'Log In to Hermit', stylesheet: '/stylesheets/login.css' });
 });
 
 router.post('/', function(req, res, next) {
   for (var i = 0; i < database.users.length; i++) {
     if (database.users[i].username === req.body.username && database.users[i].password === req.body.password) {
-      res.render('main', { title: 'Hermit App', user: database.users[i] });
+      res.render('main', { title: 'Hermit App', user: database.users[i], stylesheet: '/stylesheets/main.css' });
     } else if (i === database.users.length - 1) {
       console.log('Username or password incorrect');
-      res.render('login', { title: 'Log In to Hermit' });
+      res.render('login', { title: 'Log In to Hermit', stylesheet: '/stylesheets/login.css' });
     }
   }
 });
