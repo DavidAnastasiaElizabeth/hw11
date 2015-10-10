@@ -13,7 +13,9 @@ var UserView = Backbone.View.extend({
     },
 
 logout: function() {
-          console.log('click heard on logout button');
+  console.log('click heard on logout button');
+  var loginView =$('#login');
+   loginView.render();
  },
 });
 
@@ -23,7 +25,7 @@ var PostView = Backbone.View.extend({
     this.$el.html(title);
     return this;
   }
-})
+});
 
 var CreatePostView = Backbone.View.extend({
   render: function(user) {
@@ -48,10 +50,6 @@ var CreatePostView = Backbone.View.extend({
       timestamp: Date.now()
     });
     postAdded.save();
-    // var newUserPostsView = new UserPostsView();
-    // var newRecentPostsView = new RecentPostsView();
-    // newUserPostsView.render();
-    // newRecentPostsView.render();
     },
  });
 
