@@ -43,12 +43,13 @@ var CreatePostView = Backbone.View.extend({
     console.log('click heard on savepost button');
     var post = new PostModel();
     var newTime = $("newTime").val();
-    var newPost = $("postContent").val();
-    database.posts.add({
+    var newPost = $('postContent').val();
+    var postAdded = posts.add({
       title: newPost,
       author: database.users,
       timestamp: newTime
     });
+    postAdded.save();
     var newUserPostsView = new UserPostsView();
     var newRecentPostsView = new RecentPostsView();
     newUserPostsView.render();
