@@ -15,8 +15,8 @@ var PostModel = Backbone.Model.extend({
   }
 });
 
-var Posts = Backbone.Model.extend({
-  nodel: PostModel,
+var Posts = Backbone.Collection.extend({
+  model: PostModel,
   url:'/posts',
   initialize: function (){
     this.fetch();

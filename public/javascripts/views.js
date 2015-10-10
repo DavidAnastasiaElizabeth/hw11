@@ -37,12 +37,11 @@ var CreatePostView = Backbone.View.extend({
   },
 
   events: {
-    'click #savepost': 'save',
+    'click #savepost': 'savePost',
   },
 
-  save: function() {
-    console.log('click heard on savepost button');
-    var postAdded = hermit.posts.add({
+  savePost: function() {
+    var postAdded = this.collection.add({
       title: $('#post-title').val(),
       content: $('#post-body').val(),
       author: user,
