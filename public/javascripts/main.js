@@ -1,16 +1,19 @@
 var hermit = {};
 
-var userView = new UserView();
-$(document.body).append(userView.render().$el);
+$(function() {
 
-var createPostView = new CreatePostView();
-$('#user-view').append(createPostView.render().$el);
+  hermit.userView = new UserView();
+  $(document.body).append(hermit.userView.render().$el);
 
-var recentPosts = new RecentPosts();
-var usersPosts = new UsersPosts();
-var posts = new Posts();
+  hermit.createPostView = new CreatePostView();
+  $('#user-view').append(hermit.createPostView.render().$el);
 
-var recentPostsView = new RecentPostsView({ collection: recentPosts });
-var usersPostsView = new UsersPostsView({ collection: usersPosts });
-$('#user-view').append(recentPostsView.render().$el);
-$('#user-view').append(usersPostsView.render().$el);
+  hermit.recentPosts = new RecentPosts();
+  hermit.usersPosts = new UsersPosts();
+  hermit.posts = new Posts();
+
+  hermit.recentPostsView = new RecentPostsView({ collection: hermit.recentPosts });
+  hermit.usersPostsView = new UsersPostsView({ collection: hermit.usersPosts });
+  $('#user-view').append(hermit.recentPostsView.render().$el);
+  $('#user-view').append(hermit.usersPostsView.render().$el);
+});
