@@ -49,6 +49,12 @@ router.post('/users', function(req, res, next) {
 });
 
 //post routes
+
+router.get('/posts', function(req, res, next) {
+  res.send(database.posts);
+  //console.log(database.posts.splice(-3, database.posts.length -1));
+});
+
 router.get('/posts/recent', function(req, res, next) {
   res.send(database.posts.slice(-3));
   //console.log(database.posts.splice(-3, database.posts.length -1));
