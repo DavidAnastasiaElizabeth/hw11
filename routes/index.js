@@ -1,6 +1,6 @@
 var express = require('express');
 var database = require('../database');
-var config = require('./config');
+var config = require('../config');
 var orch = require('orchestrate');
 var db = orch(config.dbkey);
 var router = express.Router();
@@ -62,6 +62,7 @@ router.post('/posts', function(req, res, next) {
   db.post('posts', {
     "title": req.body.title,
     "author": req.body.author,
+    "content": req.body.author,
     "timestamp": req.body.timestamp
   }).then(function(result) {
     console.log('Posted');
