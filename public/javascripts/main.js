@@ -1,18 +1,22 @@
-var hermit = {};
+var Hermit = {
+  Models: HermitModels,
+  Views: HermitViews
+};
 
 $(function() {
 
-  hermit.userView = new UserView();
-  $(document.body).append(hermit.userView.render().$el);
+  Hermit.userView = new Hermit.Views.UserView();
+  $(document.body).append(Hermit.userView.render().$el);
 
-  hermit.recentPosts = new RecentPosts();
-  hermit.usersPosts = new UsersPosts();
-  hermit.posts = new Posts();
+  Hermit.recentPosts = new Hermit.Models.RecentPosts();
+  Hermit.usersPosts = new Hermit.Models.UsersPosts();
+  Hermit.posts = new Hermit.Models.Posts();
 
-  hermit.createPostView = new CreatePostView({ collection: hermit.posts });
-  hermit.recentPostsView = new RecentPostsView({ collection: hermit.recentPosts });
-  hermit.usersPostsView = new UsersPostsView({ collection: hermit.usersPosts });
-  $('#user-view').append(hermit.createPostView.render().$el);
-  $('#user-view').append(hermit.recentPostsView.render().$el);
-  $('#user-view').append(hermit.usersPostsView.render().$el);
+  Hermit.createPostView = new Hermit.Views.CreatePostView({ collection: Hermit.posts });
+  Hermit.recentPostsView = new Hermit.Views.RecentPostsView({ collection: Hermit.recentPosts });
+  Hermit.usersPostsView = new Hermit.Views.UsersPostsView({ collection: Hermit.usersPosts });
+
+  $('#user-view').append(Hermit.createPostView.render().$el);
+  $('#user-view').append(Hermit.recentPostsView.render().$el);
+  $('#user-view').append(Hermit.usersPostsView.render().$el);
 });
