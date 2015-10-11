@@ -1,0 +1,40 @@
+#user-section {
+  background-color: white;
+  border-radius: 6px;
+  width: 25%;
+  margin-left: 15%;
+  margin-right: 5%;
+  margin-bottom: 10%;
+  float: left
+}
+
+#create-view {
+  background-color: white;
+  border-radius: 6px;
+  width: 25%;
+  margin-left: 5%;
+  margin-right: 15%;
+  margin-bottom: 10%;
+  float: right
+
+}
+
+.RecentPostsView {
+  background-color: white;
+  border-radius: 6px;
+  width: 25%;
+  margin-left: 15%;
+  margin-right: 5%;
+  margin-bottom: 10%;
+  float: left
+}
+
+.MyPostsView {
+  background-color: white;
+  border-radius: 6px;
+  width: 25%;
+  margin-left: 5%;
+  margin-right: 15%;
+  margin-bottom: 10%;
+  float: right
+}
