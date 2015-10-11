@@ -1,0 +1,18 @@
+<h1>{{title}}</h1>
+<p>{{message}}</p>
+<form action="/users" method="POST">
+  <input type="hidden" name="_method" value="PUT">
+  <div>
+    <label>Username</label>
+    <input type="text" name="username" value="{{user.username}}">
+  </div>
+  <div>
+    <label>Bio</label>
+    <textarea name="bio">{{user.username}}</textarea>
+  </div>
+  <div>
+    <label>Password</label>
+    <input type="password" name="password">
+  </div>
+  <input type="submit">
+</form>
