@@ -14,11 +14,16 @@ var HermitViews = (function() {
     },
 
     logout: function() {
-      console.log('this login page is rendering');
-      window.location = 'http://localhost:3000/';
-      user = '';
-      bio = '';
-      }
+       $.ajax({
+         method: "DELETE",
+         url: '/logout'
+       }).done(function(data) {
+         console.log('Successfully Logged Out');
+       });
+       window.location = '/';
+       user = '';
+       bio = '';
+     }
   });
 
   var PostView = Backbone.View.extend({
@@ -26,6 +31,16 @@ var HermitViews = (function() {
       var title = '<h4>' + this.model.get('title') + '</h4>';
       this.$el.html(title);
       return this;
+    },
+
+    events: {
+      'click postAdded': 'edit'
+    },
+
+    edit: function() {
+      console.log("heard click on post");
+      this.$el.addClass('editing');
+      this.postBody.focus();
     }
   });
 
