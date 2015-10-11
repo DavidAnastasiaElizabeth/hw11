@@ -31,6 +31,7 @@ db.deleteCollection('users').then(function() {
 db.deleteCollection('posts').then(function() {
   db.post('posts', {
     title:'Twitter is okay...TEAM DAE TWITTER is AmAzInG',
+    content: 'Just doing some stuff',
     author:'David',
     timestamp: Date.now()
   }).then(function(result) {
@@ -39,6 +40,7 @@ db.deleteCollection('posts').then(function() {
 
   db.post('posts', {
     title:'Twitter should honstly consider a rebuild based on this model',
+    content: 'Just doing some stuff',
     author:'Anastasia',
     timestamp: Date.now()
   }).then(function(result) {
@@ -47,6 +49,7 @@ db.deleteCollection('posts').then(function() {
 
   db.post('posts', {
     title:'Team DAE Twitter rules',
+    content: 'Just doing some stuff',
     author:'Elizabeth',
     timestamp: Date.now()
   }).then(function(result) {
@@ -55,6 +58,7 @@ db.deleteCollection('posts').then(function() {
 
   db.post('posts', {
     title:'Team Dae is going to participate in a clone-a-thon',
+    content: 'Just doing some stuff',
     author:'David',
     timestamp: Date.now()
   }).then(function(result) {
@@ -63,6 +67,7 @@ db.deleteCollection('posts').then(function() {
 
   db.post('posts', {
     title:'Twitter...more like DAEitter',
+    content: 'Just doing some stuff',
     author:'Anastasia',
     timestamp: Date.now()
   }).then(function(result) {
