@@ -1,9 +1,10 @@
+
 var HermitViews = (function() {
   var UserView = Backbone.View.extend({
     id:'user-view',
     render: function(){
       var usernameSection = '<p id="username">Welcome  '+ user +'!</p>';
-      var bioSection = '<div id="userbio">bio: '+ bio +'</div>';
+      var bioSection = '<div id="userbio">About Me: '+ bio +'</div>';
       var logoutButton = '<button id="Logout">Logout</button>';
       this.$el.html('<div id="user-section">' +usernameSection + bioSection + '<div>' + logoutButton + '</div>'+'</div>');
       return this;
@@ -14,20 +15,68 @@ var HermitViews = (function() {
     },
 
     logout: function() {
-      console.log('this login page is rendering');
-      window.location = 'http://localhost:3000/';
-      user = '';
-      bio = '';
-      }
+       $.ajax({
+         method: "DELETE",
+         url: '/logout'
+       }).done(function(data) {
+         console.log('Successfully Logged Out');
+       });
+       window.location = '/';
+       user = '';
+       bio = '';
+     }
   });
 
   var PostView = Backbone.View.extend({
+    className: 'post-view',
     render: function() {
-      var title = '<h4>' + this.model.get('title') + '</h4>';
-      this.$el.html(title);
+      this.listenTo(this.collection, 'update', this.render);
+      var postEdit = '<textarea id="post-Edit"></textarea>';
+      var titleContent = $('#title').html();
+      var bodyContent = $('#content').html();
+      var title = '<h4 id="title">' + this.model.get('title') + '</h4>';
+      var contentBody = '<h5 id="content">' + this.model.get('content') + '</h5>';
+      this.$el.html(title + '<div>' + contentBody + '</div>');
+      return this;
+    },
+
+    events: {
+      'click #title': 'edit',
+      'click #content': 'edit'
+    },
+
+    edit: function() {
+      console.log("heard click on post");
+      var postEdited = this.model({
+        title: $('#post-title').html(),
+        content: $('#post-body').val(),
+      });
+      var editTitle = '<input type="text" value=' + this.model.get('title') + '>';
+      var editContent = '<input type="text" value=' + this.model.get('content') + '>';
+      this.collection.each(function(post) {
+        var postView = new PostView({ model: post });
+        this.$el.append(postView.render().$el);
+      }, this);
       return this;
     }
   });
+
+var EditView = Backbone.View.extend({
+  render: function() {
+
+  },
+
+  events: {
+    'click #title': 'edit',
+    'click #content': 'edit'
+  },
+
+  update: function() {
+    this.model.set('title', $('#title').html());
+    this.model.set('content', $('#content').html());
+    this.model.save();
+  }
+});
 
   var CreatePostView = Backbone.View.extend({
     id: 'create-view',
