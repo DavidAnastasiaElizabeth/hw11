@@ -1,40 +1,146 @@
+/*
+red = #ee2818
+light blue = #b6eefe
+med blue = #54d0ff
+darkest blue = #12c2ea
+*/
+
+
+h1 {
+  font-family: "Slackey";
+  color: #ee2818;
+  font-size: 5em;
+  text-align: center;
+  margin: auto;
+  margin-top: -3%;
+  margin-bottom: 10px;
+  background-color: white;
+  border: dotted white;
+  border-radius: .25em;
+  width: 80%;
+}
+
+#user-view {
+  width: 80%;
+  height: auto;
+  overflow: hidden;
+  border: 3px solid white;
+  border-radius: 1.5em;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  margin: auto
+
+}
+
 #user-section {
   background-color: white;
-  border-radius: 6px;
-  width: 25%;
-  margin-left: 15%;
-  margin-right: 5%;
-  margin-bottom: 10%;
-  float: left
+  border-radius: 1em;
+  width: 40%;
+  min-height: 150px;
+  margin-left: 5%;
+  margin-right: 2.5%;
+  margin-bottom: 5%;
+  padding: 10px;
+  float: left;
+  display: inline;
+
 }
 
 #create-view {
   background-color: white;
-  border-radius: 6px;
-  width: 25%;
-  margin-left: 5%;
-  margin-right: 15%;
-  margin-bottom: 10%;
-  float: right
+  border-radius: 1em;
+  width: 40%;
+  min-height: 150px;
+  margin-left: 2%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+  padding: 10px;
+  float: left;
+  display: inline;
 
 }
 
 .RecentPostsView {
   background-color: white;
-  border-radius: 6px;
-  width: 25%;
-  margin-left: 15%;
-  margin-right: 5%;
-  margin-bottom: 10%;
-  float: left
+  border-radius: 1em;
+  width: 40%;
+  min-height: 300px;
+  margin-left: 5%;
+  margin-right: 2.5%;
+  padding: 10px;
+  float: left;
+  clear: both;
+  display: inline;
+
 }
 
 .MyPostsView {
   background-color: white;
-  border-radius: 6px;
-  width: 25%;
-  margin-left: 5%;
-  margin-right: 15%;
-  margin-bottom: 10%;
-  float: right
+  border-radius: 1em;
+  width: 40%;
+  min-height: 300px;
+  margin-left: 2%;
+  margin-right: 5%;
+  padding: 10px;
+  float: left;
+  display: inline;
+
+}
+
+h2 {
+  background-color: #b6eefe;
+  color: #ee2818;
+  border-radius: .5em;
+  margin-top: 5px;
+  padding: .25em;
+}
+
+#username {
+  font-size: 1.5em;
+  font-weight: bold;
+  background-color: #b6eefe;
+  border-radius: .5em;
+  padding: .25em;
+  margin-top: 5px;
+
+}
+
+#userbio {
+  font-size: 1em;
+  min-height: 5em;
+  background-color: #b6eefe;
+  border-radius: .5em;
+  padding: .25em;
+  margin-top: -.5em;
+}
+
+#Logout {
+  background-color: #ee2818;
+  border-radius: .5em;
+  margin-top: 1em;
+  float: right;
+}
+
+.post-view {
+  background-color: #b6eefe;
+  border-radius: .5em;
+  padding: .25em;
+  margin-bottom: .25em;
+}
+
+#post-title {
+  margin-bottom: .5em;
+
+}
+
+#post-body {
+  width: 90%;
+  min-height: 5em;
+}
+
+#savepost {
+  background-color: #ee2818;
+  border-radius: .5em;
+  margin-top: 1em;
+  float: right;
 }

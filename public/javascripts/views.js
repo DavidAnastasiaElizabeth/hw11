@@ -3,7 +3,7 @@ var HermitViews = (function() {
     id:'user-view',
     render: function(){
       var usernameSection = '<p id="username">Welcome  '+ user +'!</p>';
-      var bioSection = '<div id="userbio">bio: '+ bio +'</div>';
+      var bioSection = '<div id="userbio">About Me: '+ bio +'</div>';
       var logoutButton = '<button id="Logout">Logout</button>';
       this.$el.html('<div id="user-section">' +usernameSection + bioSection + '<div>' + logoutButton + '</div>'+'</div>');
       return this;
@@ -20,6 +20,7 @@ var HermitViews = (function() {
   });
 
   var PostView = Backbone.View.extend({
+    className: 'post-view',
     render: function() {
       var title = '<h4>' + this.model.get('title') + '</h4>';
       this.$el.html(title);
