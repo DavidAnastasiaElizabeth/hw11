@@ -53,10 +53,8 @@ var HermitViews = (function() {
       postAdded.save();
       $('#post-title').val('');
       $('#post-body').val('');
-      var newUserPosts = new UsersPostsView();
-      newUserPosts.render();
-      var newRecentPosts = new RecentPostsView();
-      newRecentPosts.render();
+      Hermit.recentPostsView.collection.fetch();
+      Hermit.usersPostsView.collection.fetch();
     }
    });
 
