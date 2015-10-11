@@ -14,7 +14,7 @@ router.post('/', function(req, res, next) {
   db.search('users', 'value.username: ' + req.body.username).then(function (result) {
     if (result.body.results[0].value.password === req.body.password) {
       req.session.user = result.body.results[0].value;
-      res.render('main', { title: 'Get Chirping!', user: req.session.user, stylesheet: '/stylesheets/main.css' });
+      res.redirect('/main');
     } else {
       console.log('Username or password incorrect');
       res.render('login', { title: 'Log In to Hermit', stylesheet: '/stylesheets/login.css' });
@@ -28,7 +28,7 @@ router.delete('/logout', function(req, res) {
   delete req.session;
 });
 
-// Register Routes
+// User Routes
 // ---------------
 router.get('/register', function(req, res, next) {
   res.render('register', { title: 'Sign Up' });
@@ -55,7 +55,19 @@ router.post('/users', function(req, res, next) {
   });
 });
 
-//post routes
+router.get('/users/:id/edit', function(req, res, next) {
+  res.render('edit-user', { title: 'Edit User' });
+});
+
+router.put('/users/:id/edit', function(req, res, next) {
+
+});
+
+// Posts Routes
+// ---------------
+router.get('/main', function(req, res) {
+  res.render('main', { title: 'Get Chirping!', user: req.session.user, stylesheet: '/stylesheets/main.css' });
+});
 
 router.get('/posts', function(req, res, next) {
   db.list('posts').then(function(result) {
@@ -65,7 +77,6 @@ router.get('/posts', function(req, res, next) {
     }
     res.send(posts);
   })
-  //console.log(database.posts.splice(-3, database.posts.length -1));
 });
 
 router.post('/posts', function(req, res, next) {
@@ -87,7 +98,6 @@ router.get('/posts/recent', function(req, res, next) {
     }
     res.send(posts.slice(-3));
   })
-  //console.log(database.posts.splice(-3, database.posts.length -1));
 });
 
 router.get('/posts/:username', function(req, res, next) {
@@ -100,6 +110,12 @@ router.get('/posts/:username', function(req, res, next) {
     }
     res.send(posts.slice(-3));
   });
+});
+
+// Other Routes
+// ---------------
+router.get('/about', function(req, res, next) {
+  res.render('about', { title: 'Why Hermit?' });
 });
 
 
