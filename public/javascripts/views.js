@@ -10,13 +10,14 @@ var UserView = Backbone.View.extend({
 
  events: {
       'click #Logout': 'logout',
+
     },
 
-logout: function() {
-  console.log('click heard on logout button');
-  var loginView =$('#login');
-   loginView.render();
- },
+logout: function(){
+  console.log('this login page is rendering');
+        window.location = 'http://localhost:3000/';
+}
+
 });
 
 var PostView = Backbone.View.extend({
@@ -102,6 +103,7 @@ var UsersPostsView = Backbone.View.extend({
     // self.$el.append(postView1.$el);
  }
 });
+
 
 
 // MyPostsView = Backbone.View.extend({

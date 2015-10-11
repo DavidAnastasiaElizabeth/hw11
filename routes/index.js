@@ -8,6 +8,7 @@ var router = express.Router();
 // Login Routes
 // ---------------
 router.get('/', function(req, res, next) {
+  console.log('this login page is rendering');
   res.render('login', { title: 'Log In to Hermit', stylesheet: '/stylesheets/login.css' });
 });
 
