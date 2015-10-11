@@ -14,7 +14,8 @@ router.post('/', function(req, res, next) {
   db.list('users').then(function(result) {
     for (var i = 0; i < result.body.count; i++) {
       if (result.body.results[i].value.username === req.body.username && result.body.results[i].value.password === req.body.password) {
-        res.render('main', { title: 'Hermit App', user: result.body.results[i].value, stylesheet: '/stylesheets/main.css' });
+        req.session.user = result.body.results[i].value;
+        res.render('main', { title: 'Hermit App', user: req.session.user, stylesheet: '/stylesheets/main.css' });
       } else if (i === result.body.count - 1) {
         console.log('Username or password incorrect');
         res.render('login', { title: 'Log In to Hermit', stylesheet: '/stylesheets/login.css' });
