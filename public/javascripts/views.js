@@ -14,10 +14,9 @@ var HermitViews = (function() {
     },
 
     logout: function() {
-      console.log('click heard on logout button');
-      var loginView = $('#login');
-      loginView.render();
-    },
+        console.log('this login page is rendering');
+              window.location = 'http://localhost:3000/';
+      }
   });
 
   var PostView = Backbone.View.extend({
