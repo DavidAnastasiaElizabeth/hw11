@@ -14,8 +14,10 @@ var HermitViews = (function() {
     },
 
     logout: function() {
-        console.log('this login page is rendering');
-              window.location = 'http://localhost:3000/';
+      console.log('this login page is rendering');
+      window.location = 'http://localhost:3000/';
+      user = '';
+      bio = '';
       }
   });
 
@@ -29,7 +31,7 @@ var HermitViews = (function() {
 
   var CreatePostView = Backbone.View.extend({
     id: 'create-view',
-    render: function(user) {
+    render: function() {
       var createpostViewContainer = '<div id="createpostViewContainer">';
       var postTitle = '<input type="text" id="post-title">';
       var postBody = '<textarea id="post-body"></textarea>';
@@ -52,7 +54,11 @@ var HermitViews = (function() {
       postAdded.save();
       $('#post-title').val('');
       $('#post-body').val('');
-    },
+      var newUserPosts = new UsersPostsView();
+      newUserPosts.render();
+      var newRecentPosts = new RecentPostsView();
+      newRecentPosts.render();
+    }
    });
 
   var RecentPostsView = Backbone.View.extend({
@@ -95,6 +101,6 @@ var HermitViews = (function() {
     CreatePostView: CreatePostView,
     RecentPostsView: RecentPostsView,
     UsersPostsView: UsersPostsView
-  }
+  };
 
 })();
