@@ -11,22 +11,22 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  db.list('users').then(function(result) {
-    for (var i = 0; i < result.body.count; i++) {
-      if (result.body.results[i].value.username === req.body.username && result.body.results[i].value.password === req.body.password) {
-        req.session.user = result.body.results[i].value;
-        res.render('main', { title: 'Hermit App', user: req.session.user, stylesheet: '/stylesheets/main.css' });
-      } else if (i === result.body.count - 1) {
-        console.log('Username or password incorrect');
-        res.render('login', { title: 'Log In to Hermit', stylesheet: '/stylesheets/login.css' });
-      }
+  db.search('users', 'value.username: ' + req.body.username).then(function (result) {
+    if (result.body.results[0].value.password === req.body.password) {
+      req.session.user = result.body.results[0].value;
+      res.render('main', { title: 'Get Chirping!', user: req.session.user, stylesheet: '/stylesheets/main.css' });
+    } else {
+      console.log('Username or password incorrect');
+      res.render('login', { title: 'Log In to Hermit', stylesheet: '/stylesheets/login.css' });
     }
+  }).fail(function(err) {
+    res.send(err);
   })
 });
 
 router.delete('/logout', function(req, res) {
   delete req.session;
-})
+});
 
 // Register Routes
 // ---------------
@@ -36,24 +36,22 @@ router.get('/register', function(req, res, next) {
 
 router.post('/users', function(req, res, next) {
   var usernameAvailable = true;
-  db.list('users').then(function(result) {
-    for (var i = 0; i < result.body.count; i++) {
-      if (req.body.username === result.body.results[i].value.username) {
-        usernameAvailable = false;
-      } else if ((i === result.body.results.length -1) && usernameAvailable) {
-        db.post('users', {
-          "username": req.body.username,
-          "passsword": req.body.password,
-          "bio": req.body.bio
-        }).then(function(result) {
-          console.log('Created User Successfully');
-          res.redirect('/');
-        })
-      } else if ((i === result.body.count -1) && !usernameAvailable) {
-        console.log('Username taken');
-        res.redirect('/register');
-      }
+  db.search('users', 'value.username: ' + req.body.username).then(function (result) {
+    if (result.body.count > 0) {
+      console.log('Username taken');
+      res.redirect('/register');
+    } else {
+      db.post('users', {
+        "username": req.body.username,
+        "password": req.body.password,
+        "bio": req.body.bio
+      }).then(function(result) {
+        console.log('Created User Successfully');
+        res.redirect('/');
+      })
     }
+  }).fail(function(err) {
+    res.send(err);
   });
 });
 
