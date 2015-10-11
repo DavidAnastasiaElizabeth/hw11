@@ -131,6 +131,7 @@ var EditView = Backbone.View.extend({
       }, this);
       return this;
    }
+
   });
 
   var UsersPostsView = Backbone.View.extend({
