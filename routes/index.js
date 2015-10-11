@@ -24,6 +24,10 @@ router.post('/', function(req, res, next) {
   })
 });
 
+router.delete('/logout', function(req, res) {
+  delete req.session;
+})
+
 // Register Routes
 // ---------------
 router.get('/register', function(req, res, next) {
