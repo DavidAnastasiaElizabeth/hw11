@@ -6,7 +6,7 @@ var Hermit = {
 $(function() {
 
   Hermit.userView = new Hermit.Views.UserView();
-  $(document.body).append(Hermit.userView.render().$el);
+  $('#app').append(Hermit.userView.render().$el);
 
   Hermit.recentPosts = new Hermit.Models.RecentPosts();
   Hermit.usersPosts = new Hermit.Models.UsersPosts();
