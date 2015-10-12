@@ -31,7 +31,7 @@ router.delete('/logout', function(req, res) {
 // User Routes
 // ---------------
 router.get('/register', function(req, res, next) {
-  res.render('register', { title: 'Sign Up' });
+  res.render('register', { title: 'Sign Up', stylesheet: '/stylesheets/register_edit.css' });
 });
 
 router.post('/users', function(req, res, next) {
@@ -56,7 +56,7 @@ router.post('/users', function(req, res, next) {
 });
 
 router.get('/users/:id/edit', function(req, res, next) {
-  res.render('edit-user', { title: 'Edit User' });
+  res.render('edit-user', { title: 'Edit User', stylesheet: '/stylesheets/register_edit.css' });
 });
 
 router.put('/users/:id/edit', function(req, res, next) {

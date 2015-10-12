@@ -1,18 +1,18 @@
 <h1>{{title}}</h1>
 <p>{{message}}</p>
-<form action="/users" method="POST">
+<form class="outerbox" action="/users" method="POST">
   <input type="hidden" name="_method" value="PUT">
-  <div>
+  <div class="namefield">
     <label>Username</label>
     <input type="text" name="username" value="{{user.username}}">
   </div>
-  <div>
-    <label>Bio</label>
+  <div class="textfield">
+    <label>About Me</label>
     <textarea name="bio">{{user.username}}</textarea>
   </div>
-  <div>
+  <div class="passwordbox">
     <label>Password</label>
     <input type="password" name="password">
   </div>
-  <input type="submit">
+  <input class="submitbtn" type="submit">
 </form>

@@ -20,6 +20,12 @@ h1 {
   width: 80%;
 }
 
+h1 img {
+  height: 1em;
+  margin-left: 5px;
+  margin-bottom: -.125em;
+}
+
 #user-view {
   width: 80%;
   height: auto;
