@@ -102,7 +102,7 @@ var EditView = Backbone.View.extend({
       var postTitle = '<input type="text" id="post-title">';
       var postBody = '<textarea id="post-body"></textarea>';
       var savePost = '<button id="savepost">Chirp</button>';
-      this.$el.html(createpostViewContainer + '<br><div>' + 'Chirp Title' + '</div>' + postTitle + '</div><div>' + '<br><div>' + 'Chirp' + '</div>' + postBody + '</div><div>' + savePost + '</div>');
+      this.$el.html(createpostViewContainer + '<div>' + 'Chirp Title' + '</div>' + postTitle + '</div><div>' + '<br><div id="chirptext">' + 'Chirp' + '</div>' + postBody + '</div><div>' + savePost + '</div>');
       return this;
     },
 
