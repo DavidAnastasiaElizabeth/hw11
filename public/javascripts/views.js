@@ -17,14 +17,14 @@ var HermitViews = (function() {
 
     logout: function() {
        $.ajax({
-         method: "DELETE",
          url: '/logout'
        }).done(function(data) {
          console.log('Successfully Logged Out');
        });
-       window.location = '/';
        user = '';
        bio = '';
+       key = '';
+       window.location = '/';
      }
   });
 

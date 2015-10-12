@@ -35,7 +35,7 @@ var HermitModels = (function() {
 
   var UsersPosts = Backbone.Collection.extend({
     model: PostModel,
-    url:'posts/' + user,
+    url:'/posts/' + user,
     initialize: function (){
       this.fetch();
     }

@@ -7,9 +7,17 @@ var router = express.Router();
 
 router.use(bodyParser.urlencoded({ extended: false }));
 
+function loggedIn(req, res, next) {
+  if (req.session.user) {
+    res.redirect('/posts/main');
+  } else {
+    next();
+  }
+}
+
 // Session Routes
 // ---------------
-router.get('/', function(req, res, next) {
+router.get('/', loggedIn, function(req, res, next) {
   res.render('login', { title: 'Log In to Hermit', stylesheet: '/stylesheets/login.css' });
 });
 
@@ -28,8 +36,10 @@ router.post('/', function(req, res, next) {
   })
 });
 
-router.delete('/logout', function(req, res) {
-  delete req.session;
+router.get('/logout', function(req, res) {
+  req.session.destroy(function(err) {
+    if (err) res.send(err);
+  })
 });
 
 module.exports = router;
