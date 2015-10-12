@@ -1,0 +1,52 @@
+h1 {
+  text-align: center;
+  font-family: "Slackey";
+  color: #ee2818;
+  font-size: 5em;
+  margin-top: -3%;
+  margin-bottom: 3%;
+}
+
+.outerbox {
+  margin: auto;
+  width: 300px;
+  height: 200px;
+  border-radius: 3%;
+  background-color: #b6eefe;
+  padding-top: 5%;
+  padding-left: 5%;
+  border-style: dotted;
+  border-width: 3px;
+  border-color: white;
+}
+
+.namefield {
+  font-weight: medium;
+  font-size: 1.5em;
+  margin-bottom: .5em;
+  margin-top: -.5em;
+}
+
+.textfield {
+  font-weight: medium;
+  font-size: 1.5em;
+}
+
+.passwordbox {
+  font-weight: medium;
+  font-size: 1.5em;
+  margin-top: .5em;
+}
+
+textarea {
+  min-height: 5em;
+}
+
+.submitbtn {
+  background-color: #ee2818;
+  border-radius: .5em;
+  margin: auto;
+  margin-top: 1em;
+
+
+}
