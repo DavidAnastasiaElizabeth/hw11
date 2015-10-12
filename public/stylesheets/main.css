@@ -66,6 +66,8 @@ h1 img {
 
 }
 
+
+
 .RecentPostsView {
   background-color: white;
   border-radius: 1em;
@@ -132,6 +134,17 @@ h2 {
   border-radius: .5em;
   padding: .25em;
   margin-bottom: .25em;
+}
+
+#createEditViewContainer {
+  width: 225px;
+  min-height: 200px;
+  height: auto;
+  margin: 10px 0px;
+  padding: 10px 10px;
+/*  overflow:auto;*/
+  background-color: #ccff99;
+  border: solid 2px black;
 }
 
 #post-title {
