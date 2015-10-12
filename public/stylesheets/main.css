@@ -129,6 +129,18 @@ h2 {
   float: right;
 }
 
+#EditUser {
+  background-color: #ee2818;
+  border-radius: .5em;
+  margin-top: 1em;
+  float: right;
+}
+
+#EditUser a {
+  text-decoration: none;
+  color: #000;
+}
+
 .post-view {
   background-color: #b6eefe;
   border-radius: .5em;

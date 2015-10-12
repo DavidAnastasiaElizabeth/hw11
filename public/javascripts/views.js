@@ -5,8 +5,9 @@ var HermitViews = (function() {
     render: function(){
       var usernameSection = '<p id="username">Welcome  '+ user +'!</p>';
       var bioSection = '<div id="userbio">About Me: '+ bio +'</div>';
+      var editUser = '<button id="EditUser"><a href="/users/' + key + '/edit">Edit User</a></button>'
       var logoutButton = '<button id="Logout">Logout</button>';
-      this.$el.html('<div id="user-section">' +usernameSection + bioSection + '<div>' + logoutButton + '</div>'+'</div>');
+      this.$el.html('<div id="user-section">' +usernameSection + bioSection + '<div>' + editUser + logoutButton + '</div>'+'</div>');
       return this;
     },
 
