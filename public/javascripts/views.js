@@ -89,10 +89,11 @@ var EditView = Backbone.View.extend({
     // }, this);
     //
     // return this;
-    this.model.set('title', $('#title').html());
-    this.model.set('content', $('#content').html());
-    this.model.save();
-    this.remove();
+    console.log(this.model);
+    // this.model.set('title', $('#title').html());
+    // this.model.set('content', $('#content').html());
+    // this.model.save();
+    // this.remove();
   }
 });
 
@@ -112,13 +113,12 @@ var EditView = Backbone.View.extend({
     },
 
     savePost: function() {
-      var postAdded = this.collection.add({
+      var postAdded = this.collection.create({
         title: $('#post-title').val(),
         content: $('#post-body').val(),
         author: user,
         timestamp: Date.now()
       });
-      postAdded.save();
       $('#post-title').val('');
       $('#post-body').val('');
       Hermit.recentPostsView.collection.fetch();

@@ -1,8 +1,12 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var config = require('../config');
 var orch = require('orchestrate');
 var db = orch(config.dbkey);
 var router = express.Router();
+
+router.use(bodyParser.urlencoded({ extended: false }));
+router.use(bodyParser.json());
 
 // requires a user to be logged in
 function requireSession(req, res, next) {
